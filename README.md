@@ -4,7 +4,9 @@ Trajectory tracking for a quadrotor with a **cascaded nonlinear controller**: a 
 
 The controller was developed and tested in **NVIDIA Isaac Sim** with the **Pegasus Simulator** (PX4-style Iris quadrotor) as part of the *Design and Simulation of a Morphing Foldable Quadrotor* project at Paderborn University. This repository contains the original Isaac Sim scripts and a **standalone Python reimplementation** that runs on any laptop in a few seconds.
 
-![Figure-eight tracking in Isaac Sim, Geometric + LQR](docs/images/isaac_geo_lqr.png)
+![LQR only vs. Geometric + LQR on the figure-eight](docs/images/demo.gif)
+
+*Same drone, same figure-eight, from takeoff: a single LQR linearised at hover (left) vs. the cascaded geometric + LQR controller (right). Generated with `python_sim/make_animation.py`.*
 
 ## Results
 
@@ -28,7 +30,7 @@ Figure-eight trajectory (x = sin t, y = sin t cos t, z = 1 ± 0.2 m), 1.5 kg qua
 
 | LQR only | Geometric + LQR | With wind |
 |---|---|---|
-| ![](docs/images/isaac_lqr_only.png) | ![](docs/images/isaac_geometric.png) | ![](docs/images/isaac_geo_lqr_wind.png) |
+| ![](docs/images/isaac_lqr_only.png) | ![](docs/images/isaac_geo_lqr.png) | ![](docs/images/isaac_geo_lqr_wind.png) |
 
 ### Standalone Python reimplementation
 
@@ -97,7 +99,7 @@ cd python_sim
 python run_experiments.py
 ```
 
-This prints a report for every experiment and writes the plots and `results.md` to `results/`.
+This prints a report for every experiment and writes the plots and `results.md` to `results/`. `python make_animation.py` regenerates the GIF above.
 
 Isaac Sim + Pegasus: see [`isaac_sim/README.md`](isaac_sim/README.md).
 
