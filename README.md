@@ -1,4 +1,5 @@
 # Geometric + LQR Control of a Quadrotor
+[![Simulation check](https://github.com/srachit29/quadrotor-geometric-lqr-control/actions/workflows/simulation.yml/badge.svg)](https://github.com/srachit29/quadrotor-geometric-lqr-control/actions/workflows/simulation.yml)
 
 Trajectory tracking for a quadrotor with a **cascaded nonlinear controller**: a geometric position controller on SO(3) in the outer loop and an **LQR attitude controller** in the inner loop. It is compared against a single LQR linearised at hover, on an aggressive 3D figure-eight and under sinusoidal wind gusts.
 
