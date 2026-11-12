@@ -1,0 +1,29 @@
+name: Simulation check
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  run-experiments:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run all experiments
+        working-directory: python_sim
+        run: python run_experiments.py
+
+      - name: Save plots and results table
+        uses: actions/upload-artifact@v4
+        with:
+          name: results
+          path: results/
